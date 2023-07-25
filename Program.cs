@@ -13,9 +13,9 @@ var app = builder.Build();
 
 app.Use(async (Context, next) =>
 {
+    Context.Response.ContentType = "text/html";
     await Context.Response.WriteAsync("<p>This is responsibility of Middleware 1</p>");
     await next(Context);
-    Context.Response.ContentType = "text/html";
 });
 
 //app.Use(async (Context, next) => {
